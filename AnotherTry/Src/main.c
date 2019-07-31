@@ -20,6 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 #include "i2c.h"
 #include "lcd.h"
 #include "quadspi.h"
@@ -41,12 +42,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define roboclaw0 0x80
-#define roboclaw1 0x81
-#define roboclaw2 0x82
-#define roboclaw3 0x83
-#define roboclaw4 0x84
-#define roboclaw5 0x85
 
 
 /* USER CODE END PD */
@@ -64,42 +59,13 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-void MX_USB_HOST_Process(void);
-
+void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-unsigned int crcusha (unsigned char *packet, int nBytes) {
-	unsigned short crc = 0;
-	for (int byte = 0; byte < nBytes; byte++) {
-	 crc = crc ^ ((unsigned int)packet[byte] << 8);
-	 for (unsigned char bit = 0; bit < 8; bit++) {
-		 if (crc & 0x8000) {
-			 crc = (crc << 1) ^ 0x1021;
-		 } else {
-			 crc = crc << 1;
-		 }
-	 }
-	}
-	return crc;
-}
-
-HAL_StatusTypeDef motorForward(unsigned char roboclaw, unsigned char motor, unsigned char speed) {
-	unsigned char buffer[5];
-	buffer[0] = roboclaw;
-	if(motor == 0) buffer[1] = 0;
-	else if(motor == 1) buffer[1] = 4;
-	buffer[2] = speed;
-	unsigned short crc = crcusha(buffer, 3);
-	buffer[3] = crc>>8;
-	buffer[4] = crc;
-	return HAL_UART_Transmit(&huart2, buffer, 5, 100);
-}
-
 
 /* USER CODE END 0 */
 
@@ -139,29 +105,25 @@ int main(void)
   MX_SAI1_Init();
   MX_SPI2_Init();
   MX_USART2_UART_Init();
-  MX_USB_HOST_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
+  /* Call init function for freertos objects (in freertos.c) */
+  MX_FREERTOS_Init();
+
+  /* Start scheduler */
+  osKernelStart();
+  
+  /* We should never get here as control is now taken by the scheduler */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-//  char data[5] = {0x80, 0x00, 0x14, 0x69, 0xEF};
-//  HAL_UART_Transmit(&huart2, data, 5, 100);
-//  HAL_Delay(3000);
-//  char data1[5] = {0x80, 0x00, 0x00, 0x3B, 0x5A};
-//  HAL_UART_Transmit(&huart2, data1, 5, 100);
 
-  	  motorForward(roboclaw0, 0, 20);
-  	  HAL_Delay(50);
-  	  motorForward(roboclaw0, 0, 5);
-  	  HAL_Delay(3000);
-  	  motorForward(roboclaw0, 0, 0);
 
   while (1)
   {
     /* USER CODE END WHILE */
-    MX_USB_HOST_Process();
 
     /* USER CODE BEGIN 3 */
 
@@ -242,6 +204,27 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM1 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM1) {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+
+  /* USER CODE END Callback 1 */
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.

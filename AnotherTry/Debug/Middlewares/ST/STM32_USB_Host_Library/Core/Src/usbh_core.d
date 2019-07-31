@@ -35,10 +35,29 @@ Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.o: \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_sai.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_hcd.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_usb.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ ../Inc/FreeRTOSConfig.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
  ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h \
  ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ioreq.h \
  ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h \
@@ -117,6 +136,10 @@ Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.o: \
 
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h:
 
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h:
+
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h:
+
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
@@ -124,6 +147,40 @@ Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.o: \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_hcd.h:
 
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_usb.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
+
+../Inc/FreeRTOSConfig.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
 
 ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h:
 
