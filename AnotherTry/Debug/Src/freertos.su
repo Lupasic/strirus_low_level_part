@@ -1,0 +1,3 @@
+freertos.c:72:6:MX_FREERTOS_Init	64	static
+freertos.c:120:6:Thread1	16	static
+freertos.c:148:6:Thread2	16	static
