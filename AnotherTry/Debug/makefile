@@ -10,10 +10,6 @@ RM := rm -rf
 -include sources.mk
 -include Startup/subdir.mk
 -include Src/subdir.mk
--include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
--include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/subdir.mk
--include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/subdir.mk
--include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
 -include Middlewares/ST/STM32_USB_Host_Library/Core/Src/subdir.mk
 -include Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Src/subdir.mk
 -include Drivers/STM32L4xx_HAL_Driver/Src/subdir.mk
@@ -43,8 +39,8 @@ AnotherTry.list \
 all: AnotherTry.elf secondary-outputs
 
 # Tool invocations
-AnotherTry.elf: $(OBJS) $(USER_OBJS) C:\Users\Us\Documents\GitHub\strirus_low_level_part\AnotherTry\STM32L476VGTX_FLASH.ld
-	arm-none-eabi-gcc -o "AnotherTry.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Us\Documents\GitHub\strirus_low_level_part\AnotherTry\STM32L476VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="AnotherTry.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+AnotherTry.elf: $(OBJS) $(USER_OBJS) C:\Users\Us\STM32CubeIDE\workspace_1.0.1\AnotherTry\STM32L476VGTX_FLASH.ld
+	arm-none-eabi-gcc -o "AnotherTry.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Us\STM32CubeIDE\workspace_1.0.1\AnotherTry\STM32L476VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="AnotherTry.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

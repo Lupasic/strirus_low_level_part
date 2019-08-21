@@ -1,6 +1,0 @@
-roboclaw.c:3:14:crc16	32	static
-roboclaw.c:17:15:in_range	16	static
-roboclaw.c:23:19:motorForward	24	static
-roboclaw.c:35:19:motorBackward	24	static
-roboclaw.c:47:19:motorMove	16	static
-roboclaw.c:56:19:allMotorsMove	24	static
