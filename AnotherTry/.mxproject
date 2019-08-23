@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/Us/Documents/GitHub/strirus_low_level_part/AnotherTry/Inc
+HeaderPath=C:/Users/Us/Documents/GitHub/strirus_low_level_part2/AnotherTry/Inc
 HeaderFiles=usb_host.h;usbh_conf.h;usbh_platform.h;stm32l4xx_it.h;stm32l4xx_hal_conf.h;main.h;gpio.h;i2c.h;lcd.h;quadspi.h;sai.h;spi.h;usart.h;FreeRTOSConfig.h;
-SourcePath=C:/Users/Us/Documents/GitHub/strirus_low_level_part/AnotherTry/Src
+SourcePath=C:/Users/Us/Documents/GitHub/strirus_low_level_part2/AnotherTry/Src
 SourceFiles=usb_host.c;usbh_conf.c;usbh_platform.c;stm32l4xx_it.c;stm32l4xx_hal_msp.c;main.c;gpio.c;i2c.c;lcd.c;quadspi.c;sai.c;spi.c;usart.c;freertos.c;stm32l4xx_hal_timebase_tim.c;
 
 [PreviousLibFiles]

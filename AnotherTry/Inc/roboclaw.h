@@ -18,3 +18,4 @@ HAL_StatusTypeDef motorForward(unsigned char roboclaw, unsigned char motor, unsi
 HAL_StatusTypeDef motorBackward	(unsigned char roboclaw, unsigned char motor, unsigned char speed);
 
 HAL_StatusTypeDef motorMove	(unsigned char roboclaw, unsigned char motor, signed char speed);
+HAL_StatusTypeDef allMotorsMove (signed char* speeds);

@@ -29,7 +29,7 @@ HAL_StatusTypeDef motorForward(unsigned char roboclaw, unsigned char motor, unsi
 	unsigned short crc = crc16(buffer, 3);
 	buffer[3] = crc>>8;
 	buffer[4] = crc;
-	return HAL_UART_Transmit_DMA(&huart2, buffer, 5);
+	return HAL_UART_Transmit(&huart2, buffer, 5, 100);
 }
 
 HAL_StatusTypeDef motorBackward	(unsigned char roboclaw, unsigned char motor, unsigned char speed) {
@@ -41,7 +41,7 @@ HAL_StatusTypeDef motorBackward	(unsigned char roboclaw, unsigned char motor, un
 	unsigned short crc = crc16(buffer, 3);
 	buffer[3] = crc>>8;
 	buffer[4] = crc;
-	return HAL_UART_Transmit_DMA(&huart2, buffer, 5);
+	return HAL_UART_Transmit(&huart2, buffer, 5, 100);
 }
 
 HAL_StatusTypeDef motorMove	(unsigned char roboclaw, unsigned char motor, signed char speed) {
@@ -55,9 +55,9 @@ HAL_StatusTypeDef motorMove	(unsigned char roboclaw, unsigned char motor, signed
 
 HAL_StatusTypeDef allMotorsMove (signed char* speeds) {
 	HAL_StatusTypeDef result;
-	for (char i = 0, roboclaw = 0; roboclaw < 6; roboclaw++) {
+	for (int i = 0, roboclaw = 0; roboclaw < 6; roboclaw++) {
 		for (char motor = 0; motor < 2; motor++, i++) {
-			result = motorMove(roboclaw, motor, speeds[i]);
+			result = motorMove(roboclaw0 + roboclaw, motor, speeds[i]);
 		}
 	}
 	return result;

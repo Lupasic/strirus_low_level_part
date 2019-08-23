@@ -19,14 +19,14 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include <roboclaw.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "main.h"
 #include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */     
+/* USER CODE BEGIN Includes */
+#include "roboclaw.h"
 
 /* USER CODE END Includes */
 
@@ -50,7 +50,6 @@
 
 /* USER CODE END Variables */
 osThreadId myTask1Handle;
-osThreadId myTask2Handle;
 osMutexId myMutex01Handle;
 
 /* Private function prototypes -----------------------------------------------*/
@@ -59,7 +58,6 @@ osMutexId myMutex01Handle;
 /* USER CODE END FunctionPrototypes */
 
 void Thread1(void const * argument);
-void Thread2(void const * argument);
 
 extern void MX_USB_HOST_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -100,10 +98,6 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(myTask1, Thread1, osPriorityNormal, 0, 128);
   myTask1Handle = osThreadCreate(osThread(myTask1), NULL);
 
-  /* definition and creation of myTask2 */
-  osThreadDef(myTask2, Thread2, osPriorityIdle, 0, 128);
-  myTask2Handle = osThreadCreate(osThread(myTask2), NULL);
-
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -125,35 +119,26 @@ void Thread1(void const * argument)
   /* USER CODE BEGIN Thread1 */
   //motorMove(roboclaw0, 0, -115);
 //  HAL_Delay(3000);
-  motorMove(roboclaw0, 0, 15);
-  HAL_Delay(3000);
-  motorMove(roboclaw0, 0, -15);
-  HAL_Delay(3000);
-  motorMove(roboclaw0, 0,0);
+//  motorMove(roboclaw0, 0, 15);
+//  HAL_Delay(3000);
+//  motorMove(roboclaw0, 0, -15);
+//  HAL_Delay(3000);
+//  motorMove(roboclaw0, 0,0);
+  signed char speeds[12];
+
+  for(int i = 0; i < 12; i++) {
+	  speeds[i] = 40;
+  }
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+//	  motorForward(roboclaw0, 0, 0);
+//	allMotorsMove(speeds);
+	allMotorsMove(speeds);
+    osDelay(1000);
+
   }
   /* USER CODE END Thread1 */
-}
-
-/* USER CODE BEGIN Header_Thread2 */
-/**
-* @brief Function implementing the myTask02 thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_Thread2 */
-void Thread2(void const * argument)
-{
-  /* USER CODE BEGIN Thread2 */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END Thread2 */
 }
 
 /* Private application code --------------------------------------------------*/
