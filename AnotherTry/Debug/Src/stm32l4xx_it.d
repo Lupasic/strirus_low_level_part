@@ -55,7 +55,8 @@ Src/stm32l4xx_it.o: ../Src/stm32l4xx_it.c ../Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
+ ../Inc/roboclaw.h ../Inc/usart.h ../Inc/main.h
 
 ../Inc/main.h:
 
@@ -172,3 +173,9 @@ Src/stm32l4xx_it.o: ../Src/stm32l4xx_it.c ../Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+
+../Inc/roboclaw.h:
+
+../Inc/usart.h:
+
+../Inc/main.h:

@@ -25,7 +25,7 @@
 #include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
+/* USER CODE BEGIN Includes */     
 #include "roboclaw.h"
 
 /* USER CODE END Includes */
@@ -37,7 +37,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+signed char speeds[12] = {40,40,40 ,40,40,40 ,40,40,40 ,40,40,40};
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -124,17 +124,10 @@ void Thread1(void const * argument)
 //  motorMove(roboclaw0, 0, -15);
 //  HAL_Delay(3000);
 //  motorMove(roboclaw0, 0,0);
-  signed char speeds[12];
 
-  for(int i = 0; i < 12; i++) {
-	  speeds[i] = 40;
-  }
   /* Infinite loop */
   for(;;)
   {
-//	  motorForward(roboclaw0, 0, 0);
-//	allMotorsMove(speeds);
-	allMotorsMove(speeds);
     osDelay(1000);
 
   }

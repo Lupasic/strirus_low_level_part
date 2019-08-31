@@ -77,10 +77,12 @@ void Error_Handler(void);
 #define MAG_DRDY_GPIO_Port GPIOC
 #define VLCD_Pin GPIO_PIN_3
 #define VLCD_GPIO_Port GPIOC
-#define JOY_CENTER_Pin GPIO_PIN_0
-#define JOY_CENTER_GPIO_Port GPIOA
-#define JOY_LEFT_Pin GPIO_PIN_1
-#define JOY_LEFT_GPIO_Port GPIOA
+#define Joystick_Center_Pin GPIO_PIN_0
+#define Joystick_Center_GPIO_Port GPIOA
+#define Joystick_Center_EXTI_IRQn EXTI0_IRQn
+#define Joystick_Down_Pin GPIO_PIN_1
+#define Joystick_Down_GPIO_Port GPIOA
+#define Joystick_Down_EXTI_IRQn EXTI1_IRQn
 #define USART_TX_Pin GPIO_PIN_2
 #define USART_TX_GPIO_Port GPIOA
 #define USART_RX_Pin GPIO_PIN_3
@@ -177,8 +179,6 @@ void Error_Handler(void);
 #define OTG_FS_OverCurrent_GPIO_Port GPIOC
 #define OTG_FS_VBUS_Pin GPIO_PIN_11
 #define OTG_FS_VBUS_GPIO_Port GPIOC
-#define EXT_RST_Pin GPIO_PIN_0
-#define EXT_RST_GPIO_Port GPIOD
 #define MEMS_SCK_Pin GPIO_PIN_1
 #define MEMS_SCK_GPIO_Port GPIOD
 #define GYRO_INT1_Pin GPIO_PIN_2
@@ -205,8 +205,6 @@ void Error_Handler(void);
 #define COM3_GPIO_Port GPIOB
 #define XL_CS_Pin GPIO_PIN_0
 #define XL_CS_GPIO_Port GPIOE
-#define XL_INT_Pin GPIO_PIN_1
-#define XL_INT_GPIO_Port GPIOE
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
